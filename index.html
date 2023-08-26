@@ -2,12 +2,16 @@
   <head>
     <title>reCAPTCHA demo: Simple page</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+          document.getElementById("demo-form").submit();
+        }
+      </script>
   </head>
   <body>
     <form action="https://test-api-policy.azure-api.net/searchorganisation" method="POST">
-      <div class="g-recaptcha" data-sitekey="6LfBi9cnAAAAAJqSBdNeH-oTElJ6LPv_Ar_OnfPd"></div>
-      <br/>
-      <input type="submit" value="Submit">
+        <button class="g-recaptcha" data-sitekey="6LfBi9cnAAAAAJqSBdNeH-oTElJ6LPv_Ar_OnfPd" data-callback="onSubmit">Submit</button>
+        <br/>
     </form>
   </body>
 </html>
