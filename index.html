@@ -8,6 +8,9 @@
             $.ajax({
                 type: "POST",
                 url: "https://test-api-policy.azure-api.net/getfilesubmissionstatus",
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function (response) {
                     console.log(response);
                 }
