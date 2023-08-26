@@ -4,6 +4,16 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
+        function secondSubmit(){
+            $.ajax({
+                type: "POST",
+                url: "https://test-api-policy.azure-api.net/getfilesubmissionstatus",
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        }
+
         function onSubmit(token) {
      
             /*$.ajax({
@@ -28,20 +38,18 @@
             headers: {
                 'g-recaptcha-response':token
             },
-            data: {},
             success: function (response) {
-                //service.php response
                 console.log(response);
-
-
             }
           });
         }
       </script>
   </head>
   <body>
-    <button class="g-recaptcha" data-sitekey="6LfBi9cnAAAAAJqSBdNeH-oTElJ6LPv_Ar_OnfPd" data-callback="onSubmit">Submit2</button>
-    <button onclick="onSubmit()">Submit1</button>
+    <br /><br />
+    <button class="g-recaptcha" data-sitekey="6LfBi9cnAAAAAJqSBdNeH-oTElJ6LPv_Ar_OnfPd" data-callback="onSubmit">Submit1</button>
+    <br />
+    <button onclick="secondSubmit()">Submit2</button>
     <br/>
   </body>
 </html>
