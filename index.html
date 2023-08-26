@@ -8,8 +8,9 @@
             $.ajax({
                 type: "POST",
                 url: "https://test-api-policy.azure-api.net/getfilesubmissionstatus",
-                xhrFields: {
-                    withCredentials: true
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Credentials": true,
                 },
                 success: function (response) {
                     console.log(response);
@@ -39,7 +40,8 @@
             type: "POST",
             url: "https://test-api-policy.azure-api.net/searchorganisation",
             headers: {
-                'g-recaptcha-response':token
+                'g-recaptcha-response':token,
+                "Access-Control-Allow-Credentials": true
             },
             success: function (response) {
                 console.log(response);
